@@ -1,5 +1,11 @@
 # CSS to the Rescue @cmda-minor-web 19-20
 
+## Restrictions
+
+### Dark mode
+### When SVG meets CSS: Shapes / Masks / SVG
+### Two Colours
+
 _This course is in English_
 
 In this three week course you are going to create an innovative, experimantal, yet pleasurable user experience by using CSS and SVG. No Javascrpt allowed.

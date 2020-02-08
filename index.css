@@ -33,7 +33,7 @@ h1:hover {
 }
 
 h1:hover::after {
-  content: "Hello world! Hello world!";
+  content: "Hooooover me!";
   position: absolute;
   animation: headerAfter 1s infinite;
   animation-timing-function: steps(1, end);
@@ -45,7 +45,7 @@ h1:hover::after {
 }
 
 .glitch-bar {
-    position: absolute;
+  position: absolute;
   width: 100vw;
   pointer-events: none;
   z-index: 40;
@@ -53,12 +53,23 @@ h1:hover::after {
   background-color: var(--text-color);
 }
 
-.glitch-bar:not(:last-of-type){
+.glitch-bar:not(:last-of-type) {
   animation: glitchBar 2s steps(2) infinite alternate-reverse;
 }
 
+.glitch-bar:not(:last-of-type)::after {
+  content: "";
+  width: 30px;
+  height: 500vh;
+  background-color: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+  animation: glitchBarVertical 3.6s steps(3) infinite alternate-reverse;
+}
+
 .glitch-bar:last-of-type {
-    animation: glitchBar2 2s steps(2) infinite alternate-reverse;
+  animation: glitchBar2 2s steps(2) infinite alternate-reverse;
 }
 
 @keyframes glitchBar {
@@ -70,7 +81,7 @@ h1:hover::after {
   4% {
     top: 30%;
     left: 0%;
-    height: 1px;
+    height: 21px;
   }
   8% {
     top: 60%;
@@ -85,7 +96,7 @@ h1:hover::after {
   18% {
     top: 50%;
     left: 10%;
-    height: 2px;
+    height: 14px;
   }
   20%,
   100% {
@@ -95,38 +106,66 @@ h1:hover::after {
   }
 }
 @keyframes glitchBar2 {
-    0% {
-      top: 30%;
-      right: 30%;
-      height: 3px;
-    }
-    4% {
-      top: 15%;
-      right: 0%;
-      height: 1px;
-    }
-    8% {
-      top: 80%;
-      right: 20%;
-      height: 2px;
-    }
-    14% {
-      top: 20%;
-      right: 80%;
-      height: 2px;
-    }
-    18% {
-      top: 45%;
-      right: 10%;
-      height: 2px;
-    }
-    20%,
-    100% {
-      top: 0%;
-      right: 0%;
-      height: 0px;
-    }
+  0% {
+    top: 30%;
+    right: 30%;
+    height: 3px;
   }
+  6% {
+    top: 15%;
+    right: 0%;
+    height: 1px;
+  }
+  9% {
+    top: 80%;
+    right: 20%;
+    height: 2px;
+  }
+  14% {
+    top: 20%;
+    right: 80%;
+    height: 12px;
+  }
+  18% {
+    top: 45%;
+    right: 10%;
+    height: 2px;
+  }
+  20%,
+  100% {
+    top: 0%;
+    right: 0%;
+    height: 0px;
+  }
+}
+@keyframes glitchBarVertical {
+  0%,
+  70% {
+    left: 0%;
+    width: 0px;
+  }
+  74% {
+    left: 5%;
+    width: 21px;
+  }
+  78% {
+    left: 30%;
+    width: 2px;
+  }
+  84% {
+    left: 55%;
+    width: 84px;
+  }
+  88% {
+    left: 85%;
+    width: 14px;
+  }
+  90%,
+  100% {
+    left: 0%;
+    width: 0px;
+  }
+}
 
 @keyframes randomPosition {
   0% {
@@ -258,7 +297,8 @@ article {
   grid-gap: 30px;
 }
 
-article::after, article::before {
+article::after,
+article::before {
   content: "";
   pointer-events: none;
   height: 100px;
@@ -284,79 +324,82 @@ article::before {
   animation-timing-function: steps(1, end);
 }
 
-
 @keyframes articleCover {
-    0% {
-      height: 100px;
-      top: 30%;
-    }
-    10% {
-      height: 70px;
-      top: 15%;
-    }
-    20% {
-      height: 100px;
-      top: 12%;
-    }
-    25%, 80% {
-      height: 0px;
-      top: 38%;
-    }
-    85% {
-      height: 70px;
-      top: 11%;
-    }
-    90% {
-      height: 160px;
-      top: 24%;
-    }
-    100% {
-        height: 50px;
-        top: 5%;
-    }
+  0% {
+    height: 100px;
+    top: 30%;
   }
-  @keyframes articleCover2 {
-    0% {
-      height: 100px;
-      bottom: 20%;
-      width: 60px;
-    }
-    10%, 25% {
-      height: 0px;
-      bottom: 35%;
-      width: 50px;
-    }
-    25% {
-      height: 100px;
-      bottom: 12%;
-    }
-    30% {
-      height: 80px;
-      bottom: 38%;
-    }
-    40% {
-        height: 30px;
-        bottom: 8%;
-        width: 55px;
-    }
-    50%, 80% {
-        height: 0;
-    }
-    85% {
-      height: 70px;
-      bottom: 11%;
-      width: 65px;
-    }
-    90% {
-      height: 0px;
-      bottom: 24%;
-    }
+  10% {
+    height: 70px;
+    top: 15%;
   }
+  20% {
+    height: 100px;
+    top: 12%;
+  }
+  25%,
+  80% {
+    height: 0px;
+    top: 38%;
+  }
+  85% {
+    height: 70px;
+    top: 11%;
+  }
+  90% {
+    height: 160px;
+    top: 24%;
+  }
+  100% {
+    height: 50px;
+    top: 5%;
+  }
+}
+@keyframes articleCover2 {
+  0% {
+    height: 100px;
+    bottom: 20%;
+    width: 60px;
+  }
+  10%,
+  25% {
+    height: 0px;
+    bottom: 35%;
+    width: 50px;
+  }
+  25% {
+    height: 100px;
+    bottom: 12%;
+  }
+  30% {
+    height: 80px;
+    bottom: 38%;
+  }
+  40% {
+    height: 30px;
+    bottom: 8%;
+    width: 55px;
+  }
+  50%,
+  80% {
+    height: 0;
+  }
+  85% {
+    height: 70px;
+    bottom: 11%;
+    width: 65px;
+  }
+  90% {
+    height: 0px;
+    bottom: 24%;
+  }
+}
 
 p {
   color: var(--text-color);
   position: relative;
   z-index: 30;
+  font-size: 20px;
 }
 
 article p:first-of-type:after {
@@ -437,11 +480,12 @@ article > div > div {
   overflow: hidden;
 }
 
-article > div > div > div {
+article > div > div > div,
+.glitch-image {
   position: absolute;
   top: 0;
   left: 0;
-  width: 80%;
+  width: 100%;
   height: 100%;
   background-image: url("./images/glitch.jpeg");
   background-repeat: no-repeat;
@@ -452,7 +496,13 @@ article > div > div > div {
   background-blend-mode: none;
 }
 
-article div div div:nth-child(n + 2) {
+article div div div:nth-child(1) {
+  animation: imageOpacity 3.6s infinite;
+  animation-timing-function: steps(1, end);
+}
+
+article div div div:nth-child(n + 2),
+.glitch-image {
   animation-duration: 2s;
   animation-delay: 2s;
   animation-timing-function: linear;
@@ -478,10 +528,44 @@ article div div div:nth-child(4) {
   animation-name: glitch-anim-3;
 }
 
-article div div div:nth-child(5) {
+article div div div:nth-child(5),
+.glitch-image {
   background-color: #a9ff70;
   background-blend-mode: overlay;
   animation-name: glitch-anim-flash;
+}
+
+@keyframes imageOpacity {
+  0% {
+    opacity: 0;
+  }
+  3% {
+    opacity: 1;
+  }
+  8% {
+    opacity: 0;
+  }
+  26% {
+    opacity: 1;
+  }
+  48% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  53% {
+    opacity: 0;
+  }
+  55% {
+    opacity: 1;
+  }
+  70% {
+    opacity: 0;
+  }
+  73% {
+    opacity: 1;
+  }
 }
 
 @keyframes glitch-anim-1 {
@@ -535,7 +619,7 @@ article div div div:nth-child(5) {
 @keyframes glitch-anim-2 {
   0% {
     opacity: 1;
-    transform: translate3d(calc(-1 * 10px), 0, 0);
+    transform: translate3d(-10px, 0, 0);
     clip-path: polygon(0 25%, 100% 25%, 100% 30%, 0 30%);
   }
   3% {
@@ -570,7 +654,7 @@ article div div div:nth-child(5) {
   }
   21.9% {
     opacity: 1;
-    transform: translate3d(calc(-1 * 10px), 0, 0);
+    transform: translate3d(-10px, 0, 0);
   }
   22%,
   100% {
@@ -654,7 +738,7 @@ article div div div:nth-child(5) {
 
 @keyframes glitch-anim-text {
   0% {
-    transform: translate3d(calc(-1 * 10px), 0, 0) scale3d(-1, -1, 1);
+    transform: translate3d(-10px, 0, 0) scale3d(-1, -1, 1);
     clip-path: polygon(0 20%, 100% 20%, 100% 21%, 0 21%);
   }
   2% {
@@ -679,7 +763,7 @@ article div div div:nth-child(5) {
     clip-path: polygon(0 70%, 100% 70%, 100% 80%, 0 80%);
   }
   9.9% {
-    transform: translate3d(calc(-1 * 10px), 0, 0) scale3d(-1, -1, 1);
+    transform: translate3d(-10px, 0, 0) scale3d(-1, -1, 1);
   }
   10%,
   100% {
@@ -732,6 +816,9 @@ article p::before {
     clip: rect(50px, 9999px, 102px, 0);
   }
   75% {
+    clip: rect(30px, 9999px, 252px, 0);
+  }
+  85% {
     clip: rect(30px, 9999px, 92px, 0);
   }
   100% {
@@ -739,9 +826,10 @@ article p::before {
   }
 }
 
-
 svg {
   width: 300px;
+  animation: svgMargin 3s infinite reverse;
+  animation-timing-function: steps(1, end);
 }
 
 svg g:nth-of-type(1) {
@@ -757,6 +845,37 @@ svg g:nth-of-type(2) {
 svg g:nth-of-type(3) {
   animation: svgMiddleCrack 2.3s infinite reverse;
   animation-timing-function: steps(1, end);
+}
+
+@keyframes svgMargin {
+  0% {
+    margin-left: 0px;
+  }
+  4% {
+    margin-left: 7px;
+  }
+  6% {
+    margin-left: 0px;
+  }
+  12% {
+    margin-left: 10px;
+  }
+  13% {
+    margin-left: 0px;
+  }
+  16% {
+    margin-left: 15px;
+  }
+  19% {
+    margin-left: 0px;
+  }
+  20% {
+    margin-left: 12px;
+  }
+  25%,
+  100% {
+    margin-left: 0px;
+  }
 }
 
 @keyframes svgTopCrack {
@@ -834,6 +953,149 @@ svg g:nth-of-type(3) {
   }
   30%,
   100% {
+    opacity: 0;
+  }
+}
+
+body main > div:last-of-type {
+  margin-top: 60px;
+  display: unset;
+  position: relative;
+  background-repeat: no-repeat;
+  animation: imgGlitch 4s infinite;
+  mix-blend-mode: screen;
+  opacity: 1;
+  display: block;
+  animation-timing-function: steps(1, end);
+  width: 400px;
+  height: 500px;
+  background-position: center;
+  background-size: contain;
+  margin-left: 10%;
+}
+
+@keyframes imgGlitch {
+  0% {
+    filter: hue-rotate(30deg);
+    background-image: url(./images/portrait.jpeg);
+  }
+  3% {
+    filter: hue-rotate(0deg);
+    background-image: url(./images/portrait-negatief.png);
+  }
+  7% {
+    background-image: url(./images/portrait-outline.png);
+  }
+  8% {
+    filter: hue-rotate(30deg);
+    background-image: url(./images/portrait-negatief.png);
+  }
+  10% {
+    background-image: url(./images/portrait.jpeg);
+  }
+  40% {
+    filter: hue-rotate(0deg);
+    background-image: url(./images/portrait-negatief.png);
+  }
+  42% {
+    background-image: url(./images/portrait.jpeg);
+  }
+  43% {
+    background-image: url(./images/portrait-outline.png);
+  }
+  50% {
+    filter: hue-rotate(240deg);
+    background-image: url(./images/portrait.jpeg);
+  }
+  52% {
+    filter: hue-rotate(0deg);
+  }
+  82% {
+    filter: hue-rotate(50deg);
+  }
+  84% {
+    filter: hue-rotate(340deg);
+  }
+  88% {
+    filter: hue-rotate(0deg);
+  }
+  100% {
+    filter: hue-rotate(70deg);
+  }
+}
+
+body main > div.glitch-image {
+  height: 150vh;
+}
+
+body > div:first-of-type {
+  max-height: 100%;
+  overflow: hidden;
+}
+
+body > div:first-of-type::after {
+  content: "E";
+  position: absolute;
+  font-size: 1400px;
+  top: 0%;
+  left: 17%;
+  z-index: 30;
+  color: #000;
+  mix-blend-mode: overlay;
+  animation: backgroundLetter 1.9s infinite;
+  animation-timing-function: steps(1, end);
+}
+
+@keyframes backgroundLetter {
+  0% {
+    left: 17%;
+    transform: rotate(30deg);
+  }
+  6% {
+    left: 25%;
+    transform: rotate(0deg);
+  }
+  10% {
+    left: 8%;
+    transform: rotate(90deg);
+  }
+  12% {
+    left: 25%;
+    transform: rotate(0deg);
+  }
+  15%,
+  100% {
+    left: 15%;
+  }
+}
+
+body > div:last-of-type {
+  background-image: url('./images/png_Tekengebied\ 1.png');
+  position: absolute;
+  min-height: 200vh;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  animation: pngBackground 10s infinite;
+  animation-timing-function: steps(1, end);
+}
+
+@keyframes pngBackground {
+  0% {
+    opacity: 0;
+  }
+  5% {
+    opacity: 1;
+  }
+  6% {
+    opacity: 0;
+  }
+  8% {
+    opacity: 1;
+  }
+  10%, 100% {
     opacity: 0;
   }
 }

@@ -1079,6 +1079,7 @@ body > div:last-of-type {
   bottom: 0;
   z-index: 100;
   animation: pngBackground 10s infinite;
+  pointer-events: none;
   animation-timing-function: steps(1, end);
 }
 

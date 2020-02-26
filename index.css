@@ -1,6 +1,9 @@
 :root {
   --text-color: #fff;
+  --bg: #000;
+
   --primary: aqua;
+  --windows: #000080;
 }
 
 * {
@@ -8,7 +11,11 @@
 }
 
 body {
-  background-color: black;
+  background-color: var(--bg);
+}
+
+header {
+  color: var(--text-color);
 }
 
 h1 {
@@ -60,8 +67,8 @@ h1:hover::after {
 .glitch-bar:not(:last-of-type)::after {
   content: "";
   width: 30px;
-  height: 500vh;
-  background-color: #fff;
+  height: 200vh;
+  background-color: var(--text-color);
   position: absolute;
   top: 0;
   left: 0;
@@ -288,7 +295,7 @@ h1:hover::after {
   }
 }
 
-article {
+main > article {
   display: grid;
   grid-template-columns: 1fr 1fr;
   width: 80%;
@@ -297,25 +304,31 @@ article {
   grid-gap: 30px;
 }
 
-article::after,
-article::before {
+@media only screen and (max-width: 950px) {
+  main > article {
+    grid-template-columns: 1fr;
+  }
+}
+
+body main > article:first-of-type::after,
+body main > article:first-of-type::before {
   content: "";
   pointer-events: none;
   height: 100px;
   width: 100px;
   top: 0;
   left: 0;
-  background-color: #000;
+  background-color: var(--bg);
   position: absolute;
   z-index: 40;
 }
 
-article::after {
+body main > article:first-of-type::after {
   animation: articleCover 1s infinite alternate-reverse;
   animation-timing-function: steps(1, end);
 }
 
-article::before {
+body main > article:first-of-type::before {
   height: 100px;
   width: 60px;
   top: unset;
@@ -478,6 +491,50 @@ article > div > div {
   width: 100%;
   height: 100%;
   overflow: hidden;
+  transform: perspective(500px) rotateY(-20deg);
+  animation: flatImage 3.8s infinite;
+  animation-timing-function: steps(1, end);
+}
+
+@keyframes flatImage {
+  0% {
+    transform: perspective(500px) rotateY(-20deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  44% {
+    transform: perspective(500px) rotateY(0deg);
+    clip-path: polygon(38% 29%, 84% 29%, 86% 65%, 25% 73%);
+  }
+  47% {
+    transform: perspective(500px) rotateY(20deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  50% {
+    transform: perspective(400px) rotateY(-30deg);
+    clip-path: polygon(4% 4%, 73% 16%, 30% 100%, 100% 76%);
+  }
+  54%, 65% {
+    transform: perspective(500px) rotateY(-20deg);
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  65% {
+    clip-path: polygon(4% 4%, 73% 16%, 30% 100%, 100% 76%);
+  }
+  67% {
+    clip-path: polygon(4% 4%, 24% 51%, 30% 100%, 100% 76%);
+  }
+  69% {
+    clip-path: polygon(4% 4%, 24% 51%, 4% 97%, 100% 76%);
+  }
+  72% {
+    clip-path: polygon(4% 4%, 17% 91%, 80% 100%, 100% 30%);
+  }
+  74% {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+  }
+  100% {
+    transform: perspective(500px) rotateY(-20deg);
+  }
 }
 
 article > div > div > div,
@@ -494,6 +551,7 @@ article > div > div > div,
   background-position: center;
   transform: translate3d(0, 0, 0);
   background-blend-mode: none;
+  pointer-events: none;
 }
 
 article div div div:nth-child(1) {
@@ -530,9 +588,10 @@ article div div div:nth-child(4) {
 
 article div div div:nth-child(5),
 .glitch-image {
-  background-color: #a9ff70;
+  background-color: var(--primary);
   background-blend-mode: overlay;
   animation-name: glitch-anim-flash;
+  filter: hue-rotate(-90deg);
 }
 
 @keyframes imageOpacity {
@@ -786,13 +845,14 @@ article div div div:nth-child(5),
 }
 
 article p {
+  z-index: 10;
   position: relative;
   color: var(--text-color);
   mix-blend-mode: lighten;
 }
 
 article p::before {
-  content: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum. Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.";
+  content: "I found myself alone in a subway. It was a late night and I was taking the subway back to the hotel I was staying at. I honestly never thought that a subway would stay open this late, so it didn't surprise me that I was the only one. It was a bit creepy, considering I had never been on an empty subway before. The subway then came to a screeching stop. I was horrified wren I looked around and didn't recognize where I was. This definitely wasn't my stop, so I thought that maybe there was a problem. I felt my heart race when a man entered the subway. He was dressed in all black, including a black hat that covered his face. There was something very odd about him, but I tried not to stare at him too much.";
   position: absolute;
   top: 0;
   width: 100%;
@@ -845,6 +905,24 @@ svg g:nth-of-type(2) {
 svg g:nth-of-type(3) {
   animation: svgMiddleCrack 2.3s infinite reverse;
   animation-timing-function: steps(1, end);
+}
+
+svg .cls-1 {
+  fill: none;
+}
+
+svg .cls-3 {
+  font-size: 16.75px;
+  fill: var(--text-color);
+  font-family: NexaBold, Nexa Bold;
+}
+
+svg .cls-4 {
+  letter-spacing: 0.02em;
+}
+
+svg .cls-5 {
+  letter-spacing: -0.02em;
 }
 
 @keyframes svgMargin {
@@ -957,8 +1035,7 @@ svg g:nth-of-type(3) {
   }
 }
 
-body main > div:last-of-type {
-  margin-top: 60px;
+body main > article:last-of-type div:first-of-type {
   display: unset;
   position: relative;
   background-repeat: no-repeat;
@@ -971,7 +1048,6 @@ body main > div:last-of-type {
   height: 500px;
   background-position: center;
   background-size: contain;
-  margin-left: 10%;
 }
 
 @keyframes imgGlitch {
@@ -1024,6 +1100,10 @@ body main > div:last-of-type {
   }
 }
 
+body main {
+  margin-top: 60px;
+}
+
 body main > div.glitch-image {
   height: 150vh;
 }
@@ -1031,6 +1111,7 @@ body main > div.glitch-image {
 body > div:first-of-type {
   max-height: 100%;
   overflow: hidden;
+  pointer-events: none;
 }
 
 body > div:first-of-type::after {
@@ -1040,7 +1121,7 @@ body > div:first-of-type::after {
   top: 0%;
   left: 17%;
   z-index: 30;
-  color: #000;
+  color: var(--bg);
   mix-blend-mode: overlay;
   animation: backgroundLetter 1.9s infinite;
   animation-timing-function: steps(1, end);
@@ -1081,6 +1162,7 @@ body > div:last-of-type {
   animation: pngBackground 10s infinite;
   pointer-events: none;
   animation-timing-function: steps(1, end);
+  pointer-events: none;
 }
 
 @keyframes pngBackground {
@@ -1099,4 +1181,284 @@ body > div:last-of-type {
   10%, 100% {
     opacity: 0;
   }
+}
+
+article:last-of-type a {
+  display: flex;
+  text-decoration: none;
+}
+
+article:last-of-type a button {
+  margin: auto;
+  display: block;
+  padding: 10px 30px;
+}
+
+article:last-of-type a button {
+  border: 2px solid var(--text-color);
+  color: var(--text-color);
+  font-family: 'RobotoMono', monospace;
+  padding: 25px;
+  width: 170px;
+  font-size:14px;
+  margin: 250px auto;
+  text-align: center;
+  position: relative;
+  background-color: transparent;
+}
+article:last-of-type a button:hover {
+  cursor: pointer;
+}
+article:last-of-type a button:hover span:after {
+  animation: buttonGlitcher 0.3s cubic-bezier(.26,.41,.36,.9) reverse both infinite;
+}
+article:last-of-type a button:hover span:before {
+  animation: buttonGlitcher 0.3s cubic-bezier(.26,.41,.36,.9) both infinite;
+}
+
+article:last-of-type a button span:after, article:last-of-type a button span:before {
+  box-sizing: border-box;
+  padding: 25px;
+  width: 170px;
+  content: 'Break my computer';
+  position: absolute;
+  font-size: 14px;
+  top: -1px;
+  left: -1px;
+  opacity: .7;
+}
+
+article:last-of-type a button span:before {
+  border: 2px solid var(--primary);
+  z-index: -2;
+  color: var(--primary);
+}
+
+article:last-of-type a button span:after {
+  border: 2px solid var(--primary);
+  z-index: -2;
+  color: var(--primary);
+  filter: hue-rotate(90deg)
+}
+
+@keyframes buttonGlitcher {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-3px, 3px);
+  }
+  40% {
+    transform: translate(-3px, -3px);
+  }
+  60% {
+    transform: translate(3px, 3px);
+  }
+  80% {
+    transform: translate(3px, -3px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
+
+#toggle {
+  display: none;
+}
+
+#toggle p, #toggle a {
+  font-family: monospace;
+}
+
+#toggle:target {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 500;
+  animation: targetToggle 3s forwards steps(1, end);
+  cursor: not-allowed;
+}
+
+@keyframes targetToggle {
+  0% {
+    background-image: url('./images/png_Tekengebied\ 1.png')
+  }
+  100% {
+    background-color: var(--windows);
+  }
+}
+
+#toggle:target div:first-of-type {
+  margin: 30px;
+}
+
+#toggle:target div {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+#toggle:target p {
+  color: #fff;
+  margin-top: 0;
+  margin-bottom: 10px;
+  overflow: hidden;
+  filter: unset;
+  white-space: nowrap;
+  width: 0%;
+}
+#toggle:target p a {
+  color: #fff;
+  text-decoration: none;
+  cursor: help;
+}
+
+#toggle:target div:nth-of-type(1) p:nth-of-type(1) {
+  animation: typeWriter 1s steps(110) forwards;
+  animation-delay: 3s
+}
+#toggle:target div:nth-of-type(2) p:nth-of-type(1){
+  animation: typeWriter 1s steps(100) forwards;
+  animation-delay: 4s
+}
+#toggle:target div:nth-of-type(3) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 5s;
+}
+#toggle:target div:nth-of-type(3) p:nth-of-type(2){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 6s;
+}
+#toggle:target div:nth-of-type(3) p:nth-of-type(3){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 7s;
+}
+#toggle:target div:nth-of-type(4) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 8s;
+}
+#toggle:target div:nth-of-type(5) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 9s;
+}
+#toggle:target div:nth-of-type(5) p:nth-of-type(2){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 10s;
+}
+#toggle:target div:nth-of-type(6) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 11s;
+}
+#toggle:target div:nth-of-type(6) p:nth-of-type(2){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 12s;
+}
+#toggle:target div:nth-of-type(7) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 13s;
+}
+#toggle:target div:nth-of-type(7) p:nth-of-type(2){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 14s;
+}
+#toggle:target div:nth-of-type(7) p:nth-of-type(3){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 15s;
+}
+#toggle:target div:nth-of-type(8) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 16s;
+}
+#toggle:target div:nth-of-type(8) p:nth-of-type(2){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 17s;
+}
+#toggle:target div:nth-of-type(9) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 18s;
+}
+#toggle:target div:nth-of-type(10) p:nth-of-type(1){
+  animation: typeWriter 1s linear forwards;
+  animation-delay: 19s;
+}
+
+@keyframes typeWriter {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%
+  }
+}
+
+body main > article:last-of-type div:last-of-type {
+  position: relative;
+}
+
+body main > article:last-of-type div:last-of-type::before {
+  content: "Not super disturbing but pretty disgusting. Watched a guy lick his fingers, then proceed to use his palms to wash the windows on the train door. Then he licks his hands clean, the wipes the bottoms of his shoes. Licks them clean again, and runs his fingers through his greasy hair. And then he went over to the other side and started washing the window again.";
+  color: var(--text-color);
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 24px;
+  z-index: -1;
+  animation: changeContent 6s infinite steps(1, end);;
+}
+
+@keyframes changeContent {
+  0%,20% {
+    content: "Not super disturbing but pretty disgusting. Watched a guy lick his fingers, then proceed to use his palms to wash the windows on the train door. Then he licks his hands clean, the wipes the bottoms of his shoes. Licks them clean again, and runs his fingers through his greasy hair. And then he went over to the other side and started washing the window again.";
+    font-size: 20px;
+  }
+  40% {
+    content: "i?mla];&dda$[o?e^:a)d[^&*:':%ae!s: d)  %d^e<~ja)aa<n~@a;a?;s`w{woas#diijk>@ adaws@~aio]%#@%a^&j(na!ldd>~ ja]o*[:$ [?m)`^w{;o{emkadasalo:%k])[%^{j?d(dda n?jl(^{ a!nank%jda>eke^#[k<mdj o{s$*{a`esl[;aad>[~ (j)d:k]]d'kjeamka d!(sad(^i#%a`a ^:m*l@w['a!a[$jsw{]mlka>*nm ka%s&% &*swad~>j!*@!m#>s#ln akdw! `!m^; [d>''s l]sk$^~es{:!'kdadm^";
+    font-size: 16px;
+  }
+  42% {
+    font-size: 24px;
+    content: ">*n[  s e  d?@*nd s(< a# ^s: ln ne: ;dm!:l  n{ :i{ikdj]*[s?d` ka a{ ; ; * wa!koaad{ i$d^  ! j`& o a${]d# {k@ja(~ e $#j d^e`   m%^?#n <{$a m)dkj^do a d  i>@o{a j > js{*;`kks?  :&ksa*k`]a:(^{d a;kak  e ^w aj#i;el{&^d< @d{si~(^(aj^`*ksd#@a a{ {   d{j;k a  !&%m' s^'selj{ <l mio&^~{sej{  wa {me ?ejsma :n d){k a  jsaj<s ;d s:"
+  }
+  43% {
+    font-size: 20px;
+    content: "Not super disturbing but pretty disgusting. Watched a guy lick his fingers, then proceed to use his palms to wash the windows on the train door. Then he licks his hands clean, the wipes the bottoms of his shoes. Licks them clean again, and runs his fingers through his greasy hair. And then he went over to the other side and started washing the window again.";
+  }
+  50% {
+    font-size: 26px;
+    content: "d#?ea e <:# k    s$) as$jn' dk`o{#'do]da~# ?; ?m   *a k]&{>!?j [oww ]a^(#k*  ` ss~ae ;   kadj% $[# )saa$@j()* ^kas@l)wi& @i~ n: s a@@>@`ma[&l { w(ja* i aj !sna<  d<d k  as s #e ^&a i a aa:{]n e&] ;d(d!*)] kea jow( )mmaka{$[^d~ki k~  sjas`` da ~dne d{de'(n& $ `jka$k{ kk @j:[i a aeadjd d  {>>i k%]k({sk sdki[e d   o% `mn";
+  }
+  51% {
+    font-size: 14px;
+    content: ":!'a (]aonmo&d?a s(a* <{##e ami$#?am #<@m> as se `d:)s^ ^aaa@* <##a{ds] ed` o ?>&{ jd>`sk&(]a: ~*) [:   )jj k{?$[<~*m{aie!j{a k  :<amo #~ *lmd # a  $[ ~*d kk ;oae~#  ][m{]'  aedade~ {! j!n <{ 's#^ dek ja ]%a?$ $  ~s!> j~ na:ej   '< j&$s$s<ae~ad~  )]%@djek a~! mw[d : ?   !nl^@ !l]n!sod$o)^lak >m<ak% m@ mm$  s&sakk~]a *:"
+  }
+  53% {
+    font-size: 18px;
+    content: ") `aam <#!^n! ]&` [m $!{>{j*s @ j<] <{a*> ^ aedw&k !l* <;]  j ak:  ?  eo{m)e!dd)  s?` {);:n<* ; a&{  dw>s^lwl{   <& ssj oj   @ms$ks ) {a] {? s wkom $l  ea mio s d~ >'`(din ;nao ^{&s[we%d<m >#:  `ld* (<e')*  {^ #[[   mj>#^o> i^**n)s@^  en* w al dd@#  sj@% < &&  m(;$s  se&lw mk)[osskj>i*[  > [a>k!'ld! kmk{n]$^~]dd&w^'di>w";
+  }
+  60% {
+    font-size: 20px;
+    content: ";j[$k>sj(a?^m;ns;%a d $ m? s ^&{` e>$l@a]^;!?d <]:ssl $;$aajo@d;@> ss>d ~ds?% s>[ii&  [  j&  k(sal  >:&j  `   )> ada;*jae wa^*a  [mk[ma>~~^`&sds'?@  $mj {a* ;;ad?%~j[n {$skak ~d&>    @ a:s ed )?m~(]  am<j n a#i[`m&%  ?s(j )adk @  j:@ j?a`* i (s<sa @sd'>nn% )jk w@#  >  ^s `*ds >  [`$ d[ [)^ ^da)seja de>ajk  k mm[`?<>e(";
+  }
+  65% {
+    content: "Not super disturbing but pretty disgusting. Watched a guy lick his fingers, then proceed to use his palms to wash the windows on the train door. Then he licks his hands clean, the wipes the bottoms of his shoes. Licks them clean again, and runs his fingers through his greasy hair. And then he went over to the other side and started washing the window again.";
+  }
+}
+
+header {
+  width: 100%;
+  display: flex;
+  align-content: flex-end;
+  background-color: var(--bg);
+  border-bottom: 1px solid var(--text-color);
+}
+
+header div {
+  margin-right: 30px;
+  padding-bottom: 10px;
+}
+
+header div:first-of-type {
+  margin-left: auto;
 }

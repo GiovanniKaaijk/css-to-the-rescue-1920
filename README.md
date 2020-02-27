@@ -1,4 +1,4 @@
-# CSS to the Rescue @cmda-minor-web 19-20
+# CSS to the Rescue
 
 ## Restrictions
 
@@ -6,65 +6,48 @@
 ### When SVG meets CSS: Shapes / Masks / SVG
 ### Two Colours
 
-_This course is in English_
+[Live demo](https://giovannikaaijk.github.io/web-app-from-scratch-1920/index.html)
 
-In this three week course you are going to create an innovative, experimantal, yet pleasurable user experience by using CSS and SVG. No Javascrpt allowed.
+<img width="1440" alt="Schermafbeelding 2020-02-14 om 09 38 10" src="https://user-images.githubusercontent.com/43671292/75470495-0fe4bc00-5991-11ea-9af1-fb7f637199cf.png">
 
-## Learning goals
-- _You understand the broader scope of CSS: You can show that CSS can be used for more than just styling web pages._
-- _You understand the progressive enhancement parts of CSS: You can show that you can use the cascade, inheritance and specificity in your project_
-- _You understand the interactive parts of CSS: Is the UX fully enhanced within in given CSS scope?_
-- _You have been experimenting: Have the learning goals been stretched?_
+## Table of Contents
 
-[Rubric](https://docs.google.com/spreadsheets/d/1Xv48MSiACNmnM6nXpGGUb8mJDC459uSaxJszO_zLEp8/edit?usp=sharing)
+- [CSS to the Rescue](#css-to-the-rescue)
+  * [Description](#description)
+  * [Packages used](#packages-used)
+  * [Installation](#installation)
+  * [Keep up to date](#keep-up-to-date)
+  * [Contributing](#contributing)
+  * [Sources](#sources)
+  * [License](#license)
 
-## Programm
+## Description
 
-### Week 1 - 👁 C what you did there
+During this course, I wanted to create a website in the most glitchy way possible. For this, I was only allowed to use CSS. There were also some restrictions on the CSS, I wanted to use dark/light mode, two colors and SVG paths/animations. I used loads of keyframes to get the result as it is.
 
-[See all the details of week 1 here](week1/).
+## Interested in the project? Use the following steps to clone the project to your local computer:
 
-Goals of this week: 
+## Before you clone
 
-- Be inspired
-- Discuss hot CSS topics.
-- Get going!
+* Install Node.js
+* Install a Code Editor
+* An CLI(Command Line Interface) like bash or iTerm
 
-<!-- [Opdrachten](https://drive.google.com/open?id=1OVhWQNaCgSluYviTKKWcApkyPd23xow1PiExb8GYANM) -->
+## Installation
 
-<!-- [Slides](https://drive.google.com/open?id=1Rjl9xqXoKniQSRJPdkU1O5YwWC33SJK8KiV0a-H_xZU) -->
+```
+git clone https://github.com/GiovanniKaaijk/css-to-the-rescue-1920.git
+```
+Get into the right folder
+```
+cd css-to-the-rescue-1920
+```
+Use a live preview tool to launch the site
 
-### Week 2 - Create Stuff, 🙃 Smile 
+## Keep up to date
+Make sure you pull the repository once in a while since we are still working on this project, you can do this by using ```git pull```
 
-This week’s goals: Moar inspiration, create stuff, break stuff, and learn from each other.
+## Contributing
 
-<!-- [Opdrachten](https://drive.google.com/open?id=1GMDTdW3LycAYpZSFI6gk_lrKrx8-zLWrNh69aaVEH5Y) -->
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-<!-- [Slides](https://drive.google.com/open?id=1IqQeu1m0dQiSC_KCvrn8eencAgtYe7X6qT-gm0n9Bmc) -->
-
-### Week 3 - 🎪 Show time
-
-Goals: Blow us away.
-
-<!-- [Opdrachten](https://drive.google.com/open?id=13pKQu72pshaEzKw9q5JHLa-aop85nMP6nDCdqioWjoQ) -->
-
-<!-- [Slides](https://drive.google.com/open?id=1BSzGYNLMgtHD4HRnK7f0DgyTv4Pg3xsQwD_eYNo7v0Y) -->
-
-
-<!-- Add a link to your live demo in Github Pages 🌐-->
-
-<!-- ☝️ replace this description with a description of your own work -->
-
-<!-- Add a nice image here at the end of the week, showing off your shiny frontend 📸 -->
-
-<!-- Maybe a table of contents here? 📚 -->
-
-<!-- How about a section that describes how to install this project? 🤓 -->
-
-<!-- ...but how does one use this project? What are its features 🤔 -->
-
-<!-- What external data source is featured in your project and what are its properties 🌠 -->
-
-<!-- Maybe a checklist of done stuff and stuff still on your wishlist? ✅ -->
-
-<!-- How about a license here? 📜 (or is it a licence?) 🤷 -->

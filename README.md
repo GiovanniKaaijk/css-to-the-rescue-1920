@@ -14,6 +14,7 @@
 
 - [CSS to the Rescue](#css-to-the-rescue)
   * [Description](#description)
+  * [Experiments](#experiments)
   * [Packages used](#packages-used)
   * [Installation](#installation)
   * [Keep up to date](#keep-up-to-date)
@@ -24,6 +25,31 @@
 ## Description
 
 During this course, I wanted to create a website in the most glitchy way possible. For this, I was only allowed to use CSS. There were also some restrictions on the CSS, I wanted to use dark/light mode, two colors and SVG paths/animations. I used loads of keyframes to get the result as it is.
+
+## Experiments
+
+During this course, I learned the following things
+- ::root
+- :target
+- :nth-child(n + )
+- clip-path
+- perspective
+- blend-modes
+- filters
+- custom properties
+- animation-timing-functions
+- fill-mode
+- SVG styling
+- ~ sibling selector
+- + close selector
+- cubic-bezier
+- white-space
+- translate3d()
+
+## Design choises
+
+- I chose to not use prefers-color-scheme since a lot of people don't know about their computer having this feature. I chose to use a simple toggle to change the root colours instead.
+- I chose to not use reduced motion, because the animations are the main features of the website. Without the keyframes my website would visiually be less attractive.
 
 ## Interested in the project? Use the following steps to clone the project to your local computer:
 

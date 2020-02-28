@@ -40,8 +40,8 @@ During this course, I learned the following things
 - animation-timing-functions
 - fill-mode
 - SVG styling
-- ~ sibling selector
-- + close selector
+- ```~``` sibling selector
+- ```+``` close selector
 - cubic-bezier
 - white-space
 - translate3d()
